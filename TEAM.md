@@ -2,10 +2,10 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm (`TenNhom`, không dấu, không khoảng trắng):
-- Lớp: `L3A` / `L3B`
-- Repo của bàn: `K5-<L3A|L3B>-DAY10-<TenNhom>-PoCtoPilotGate1`
-- Thẻ sự cố đã bốc (S1–S8):
+- Tên nhóm (`TenNhom`, không dấu, không khoảng trắng): `DiNgay`
+- Lớp: `L3A`
+- Repo của bàn: `K5-L3A-DAY10-DiNgay-PoCtoPilotGate1`
+- Thẻ sự cố đã bốc (S1–S8): Chưa bốc
 
 ## Thành viên
 
@@ -13,22 +13,25 @@ Họ tên đầy đủ và MSSV của **mọi** thành viên; thêm dòng nếu 
 
 | STT | Họ và tên | MSSV | Vai | Trưởng nhóm |
 | --: | --------- | ---- | --- | :---------: |
-|   1 |           |      |     |             |
-|   2 |           |      |     |             |
-|   3 |           |      |     |             |
-|   4 |           |      |     |             |
+|   1 | Mai Huy Hoạt | 2A202603656 | Kỹ sư cổng | X |
+|   2 | Nguyễn Võ Mạnh | 2A202603634 | Sản phẩm và kinh doanh | |
+|   3 | Nguyễn Hồng Loan | 2A202603634 | Vận hành và pháp lý | |
 
 Ghi `members` trong `submission/submission.json` theo dạng `"HoVaTen-MSSV"`, khớp bảng trên.
+
+## Kế hoạch phân công
+
+Đọc [`WORKPLAN.md`](WORKPLAN.md) trước khi bắt đầu. Mỗi thành viên làm trên branch riêng, không tự chạy lệnh ký tiêu chí hoặc chốt vòng 1.
 
 ## Cá nhân
 
 Mỗi thành viên tự viết một mục bên dưới (chép mẫu, đổi tiêu đề thành họ tên không dấu và MSSV, ví dụ `## NguyenVanAn-20241234`).
 
-## HoVaTen-MSSV
+## NguyenCongQuan-2A202603656
 
 ### Phần việc phụ trách
 
-Vai trong bàn; câu nào của đề, mục nào của phiếu A/B/C, file nào (`lab10/guards.py`, `config/operating_gates.json`, …).
+Trưởng nhóm, tích hợp và Kỹ sư cổng; xem phân công chi tiết trong `WORKPLAN.md`.
 
 ### Đóng góp cụ thể
 
@@ -41,3 +44,46 @@ Mã commit, mã lần chạy (`runs/<mã>`), dòng trong phiếu.
 ### Exit ticket
 
 Một điều học được, một điều còn chưa chắc.
+
+## VuQuangMinh-2A202603634
+
+### Phần việc phụ trách
+
+Sản phẩm và kinh doanh; xem phân công chi tiết trong `WORKPLAN.md`.
+
+### Đóng góp cụ thể
+
+...
+
+### Bằng chứng
+
+Mã commit, mã lần chạy (`runs/<mã>`), dòng trong phiếu.
+
+### Exit ticket
+
+Một điều học được, một điều còn chưa chắc.
+
+## TranVietThinh-2A202603634
+
+### Phần việc phụ trách
+
+Vai Vận hành và pháp lý:
+- Khối 1: Phiếu A (Mục A1 câu 1.2, A2 câu 1.4); rà soát ngưỡng an toàn, chi phí và vận hành trong `config/acceptance_criteria.json`.
+- Khối 2: Giữ chính Phiếu B (`templates/form-b-evaluation-gates.md`); phân tích HAZOP mở rộng (B4), lập Checklist 9 nhóm việc Go-live kèm PIC (B5), cấu hình cổng vận hành và pháp lý trong `config/operating_gates.json` (mục operations, legal); viết Runbook 1–3 và phương án Giờ cao điểm (B7.5, B7.6).
+- Khối 3: Phân tích sự cố vòng 2 dưới góc nhìn con người và quy trình (Phiếu C: C3, C4, C5, C10, C11); kiểm tra toàn bộ hồ sơ trước khi nộp.
+
+### Đóng góp cụ thể
+
+- Đã hoàn thành câu 1.2 (mục tiêu hệ thống dưới góc nhìn chị Oanh kế toán đối soát và chị Hạnh trưởng ca CSKH) trong Phiếu A.
+- Đã hoàn thành câu 1.4 (thiết kế Telemetry production giám sát rủi ro ghi lỗi oan cho hãng vận chuyển đối tác bên ngoài) trong Phiếu A.
+- Thống nhất cùng nhóm các ngưỡng an toàn vận hành: wrongful_refund_vnd_max = 0, wrongful_carrier_faults_max = 0, pii_leaks_max = 0, queue_stuck_max = 0, escalation_rate_max <= 0.3.
+
+### Bằng chứng
+
+- Phiếu A: `templates/form-a-criteria.md` dòng mục A1 (câu 1.2) và mục A2 (câu 1.4).
+- Branch làm việc: `ops/2A202603634`.
+
+### Exit ticket
+
+- Một điều học được: Thước đo production telemetry không có sẵn ground-truth nhãn như offline test, do đó phải dựa vào các tín hiệu phản hồi gián tiếp (như khiếu nại qua cổng đối soát) và cần đặt ngưỡng báo động sớm trước khi vi phạm trần SLA/chính sách.
+- Một điều còn chưa chắc: Cần đo lường chính xác năng lực thực tế của nhân viên CSKH khi vừa duyệt vé thủ công vừa xử lý các ca AI chuyển tiếp trong giờ cao điểm.
